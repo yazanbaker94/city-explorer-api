@@ -30,7 +30,7 @@ app.get('/', // our endpoint name
        
  
  
-app.listen(8000) // kick start the express server to work
+app.listen(process.env.PORT) // kick start the express server to work
 
 class Forecast {
     constructor(data) {
