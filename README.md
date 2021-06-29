@@ -4,29 +4,31 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+built a backend server that parses through weather.json file on my local machine and fetches the various variables such as city name, date and description and sends it back to my frontend client
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+client will need to install express, axios, dotenv and cors.
+also needs to be able to use res and req functions and app.get in order to send respond to the queries.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+express, axios, dotenv and cors. also online API's from locationIQ and my own location machine.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
-
+29-6-2020 - 
+4pm: installed all the needed packages mentioned above
+5pm: connected the local api
+7pm: sent the response to client
+10pm: sent response error to client
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
 
-Name of feature: ________________________________
+Name of feature:ibrahim al omari
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2 hours
 
-Start time: _____
+Start time: 3pm
 
-Finish time: _____
+Finish time: 10pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 7hours
