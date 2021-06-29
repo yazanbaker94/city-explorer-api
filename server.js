@@ -1,7 +1,7 @@
 const express = require('express') // require the express package
 const app = express() // initialize your express app instance
 const cors = require('cors');
-const weatherData = require('./data/weather.json');
+const weather = require('./data/weather.json');
 
 app.use(cors()) // after you initialize your express app instance
 require('dotenv').config();
@@ -22,9 +22,28 @@ app.get('/', // our endpoint name
 //      }
 //  })
 
- app.get('/weather', function (req, res) {
-    const arrOfData = weatherData.map(info => new Forecast(info));
-    res.send(arrOfData);
+ app.get('/weather',  (req, res) => {
+  let lat=req.query.lat
+  let lon=req.query.lon
+  let searchQuery=req.query.searchQuery
+
+  try{let findData=()=>{
+    let city=weather.find((city, idx) => {
+      return (city.city_name.toLowerCase()===searchQuery.toLowerCase() && city.lat === Number(lat) && city.lon === Number(lon))
+    })
+    console.log(city.data)
+    return city.data.map(item=> {
+      return new Forecast(item)
+    }
+    )
+  }
+  res.json(findData());
+}catch(error){
+  res.status(500).json({message:"something went wrong"})
+  
+}
+  
+
   });
     
        
@@ -33,9 +52,9 @@ app.get('/', // our endpoint name
 app.listen(process.env.PORT) // kick start the express server to work
 
 class Forecast {
-    constructor(data) {
+    constructor(weatherData) {
       this.date = weatherData.valid_date;   
-      this.description = weatherData.description;
+      this.description = weatherData.weather.description;
     }
   }
 
