@@ -1,6 +1,4 @@
 
-
-
 'use strict'
 const express = require('express') // require the express package
 const app = express() // initialize your express app instance
@@ -9,8 +7,10 @@ const moviesController = require('./movies')
 const cors = require('cors');
 const axios = require('axios');
 
+
 app.use(cors()) // after you initialize your express app instance
 require('dotenv').config();
+
 
 // a server endpoint 
 app.get('/', // our endpoint name
